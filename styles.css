@@ -1,0 +1,56 @@
+:root {
+  --primary: #123c56;
+  --secondary: #168f83;
+  --background: #f2f6f8;
+  --surface: #ffffff;
+  --text: #193344;
+  --muted: #738594;
+  --line: #e2eaf0;
+  --radius: 18px;
+  font-family: Inter, "Noto Sans Thai", Tahoma, sans-serif;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--background); color: var(--text); }
+button, input, select { font: inherit; }
+.app-shell { min-height: 100vh; }
+.hero { padding: 34px max(22px, calc((100vw - 1220px)/2)); color: #fff; background: linear-gradient(115deg, #123c56, #1c6170); }
+.eyebrow { font-size: 11px; letter-spacing: .15em; opacity: .75; }
+.hero h1 { margin: 9px 0 5px; font-size: clamp(25px, 4vw, 35px); }
+.hero p { margin: 0; opacity: .82; font-size: 14px; }
+.hero-meta { display: flex; align-items: center; gap: 8px; margin-top: 17px; font-size: 12px; opacity: .9; }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: #71e0bb; box-shadow: 0 0 0 4px #71e0bb25; }
+.container { max-width: 1220px; margin: auto; padding: 25px 22px 40px; }
+.toolbar, .filters, .toolbar-actions { display: flex; align-items: end; gap: 10px; flex-wrap: wrap; }
+.toolbar { justify-content: space-between; margin-bottom: 17px; }
+.filters label { display: grid; gap: 5px; color: var(--muted); font-size: 11px; }
+select, input { min-height: 40px; padding: 8px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); color: var(--text); }
+.updated { color: var(--muted); font-size: 11px; align-self: center; }
+.btn { border: 0; border-radius: 10px; min-height: 40px; padding: 8px 14px; cursor: pointer; font-weight: 600; }
+.btn-secondary { background: var(--secondary); color: white; }
+.btn-ghost { background: #e7eef2; color: var(--text); }
+.kpi-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 13px; }
+.kpi, .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 5px 22px #123c5608; }
+.kpi { padding: 18px; }
+.kpi-accent { width: 35px; height: 3px; border-radius: 3px; background: var(--secondary); margin-bottom: 13px; }
+.kpi-label { color: var(--muted); font-size: 12px; }
+.kpi-value { margin: 6px 0 3px; font-size: 29px; font-weight: 750; letter-spacing: -.03em; }
+.kpi-note { color: var(--muted); font-size: 11px; }
+.chart-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 13px; margin-top: 13px; }
+.panel { padding: 19px; }
+.panel-heading h2, .table-heading h2 { margin: 0; font-size: 16px; }
+.panel-heading p, .table-heading p { margin: 4px 0 0; color: var(--muted); font-size: 11px; }
+.chart-wrap { position: relative; height: 310px; margin-top: 15px; }
+canvas { width: 100%; height: 100%; display: block; }
+.table-panel { margin-top: 13px; }
+.table-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+.table-heading input { width: 230px; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; white-space: nowrap; font-size: 13px; }
+th, td { padding: 12px 13px; border-bottom: 1px solid var(--line); text-align: left; }
+th { color: var(--muted); font-size: 11px; font-weight: 600; background: #f7fafb; }
+.numeric { text-align: right; font-variant-numeric: tabular-nums; }
+.year-pill { display: inline-block; padding: 4px 9px; border-radius: 20px; color: var(--secondary); background: #168f8315; font-size: 11px; }
+.table-footer, footer { margin-top: 13px; color: var(--muted); font-size: 11px; text-align: center; }
+.empty { text-align: center; padding: 28px; color: var(--muted); }
+@media (max-width: 850px) { .kpi-grid { grid-template-columns: repeat(2,1fr); } .chart-grid { grid-template-columns: 1fr; } }
+@media (max-width: 540px) { .hero { padding: 26px 17px; } .container { padding: 17px 12px 30px; } .toolbar { align-items: flex-start; } .toolbar-actions { align-items: center; } .kpi { padding: 14px; } .kpi-value { font-size: 24px; } .table-heading { align-items: stretch; flex-direction: column; } .table-heading input { width: 100%; } }

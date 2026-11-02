@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123c56">
+  <title>Sisaket Data Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="hero">
+      <div class="eyebrow">DATA INSIGHTS · SRI SA KET</div>
+      <h1>ศูนย์ข้อมูลผู้เข้ารับการบำบัด</h1>
+      <p>ภาพรวมจำนวนหมู่บ้าน/ชุมชน และผู้ป่วยเข้ารับบำบัด แยกตามปีและอำเภอ</p>
+      <div class="hero-meta"><span class="live-dot"></span><span id="connectionLabel">กำลังใช้ข้อมูลตัวอย่าง</span></div>
+    </header>
+
+    <main class="container">
+      <section class="toolbar">
+        <div class="filters">
+          <label>ปี<select id="yearFilter"><option value="all">ทุกปี</option></select></label>
+          <label>อำเภอ<select id="districtFilter"><option value="all">ทุกอำเภอ</option></select></label>
+        </div>
+        <div class="toolbar-actions">
+          <span class="updated" id="lastUpdated">ยังไม่ได้อัปเดต</span>
+          <button class="btn btn-secondary" id="refreshBtn" type="button">↻ รีเฟรช</button>
+          <button class="btn btn-ghost" id="resetBtn" type="button">ล้างตัวกรอง</button>
+        </div>
+      </section>
+
+      <section class="kpi-grid" id="kpiGrid"></section>
+
+      <section class="chart-grid">
+        <article class="panel">
+          <div class="panel-heading"><div><h2>ผู้เข้ารับบำบัดรายอำเภอ</h2><p>10 อำเภอที่มีจำนวนสูงสุดตามตัวกรอง</p></div></div>
+          <div class="chart-wrap"><canvas id="districtChart" height="310"></canvas></div>
+        </article>
+        <article class="panel">
+          <div class="panel-heading"><div><h2>แนวโน้มรายปี</h2><p>จำนวนผู้เข้ารับบำบัดรวมในแต่ละปี</p></div></div>
+          <div class="chart-wrap"><canvas id="yearChart" height="310"></canvas></div>
+        </article>
+      </section>
+
+      <section class="panel table-panel">
+        <div class="table-heading">
+          <div><h2>รายละเอียดข้อมูล</h2><p>ค้นหาและตรวจสอบรายการข้อมูล</p></div>
+          <input id="searchInput" type="search" placeholder="ค้นหาอำเภอ..." aria-label="ค้นหาอำเภอ">
+        </div>
+        <div class="table-scroll">
+          <table>
+            <thead><tr><th>ปี</th><th>อำเภอ</th><th class="numeric">หมู่บ้าน/ชุมชน</th><th class="numeric">ผู้ป่วยเข้ารับบำบัด</th></tr></thead>
+            <tbody id="dataRows"></tbody>
+          </table>
+        </div>
+        <div class="table-footer" id="rowCount"></div>
+      </section>
+      <footer>ข้อมูลจาก Google Sheets · Sisaket Data Dashboard</footer>
+    </main>
+  </div>
+  <script src="config.js"></script>
+  <script src="sample-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
